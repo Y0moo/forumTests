@@ -41,7 +41,7 @@
       });
     }
 	 
-   $doc.on('visibilitychange', () => {
+   document.on('visibilitychange', () => {
 	if (document.visibilityState === 'hidden') {
 		window.localStorage.removeItem('WALLETCONNECT_DEEPLINK_CHOICE');
 	}
