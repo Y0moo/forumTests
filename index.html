@@ -19,11 +19,6 @@
     Moralis.serverURL = "https://m3oiviwg53p6.bigmoralis.com:2053/server";
 
     async function login() {
-      $doc.on('visibilitychange', () => {
-	      if (document.visibilityState === 'hidden') {
-		       window.localStorage.removeItem('WALLETCONNECT_DEEPLINK_CHOICE');
-	      }
-        });
       var walletProvider = "walletconnect";
       if (typeof web3 !== 'undefined') {
         walletProvider = "metamask";
@@ -45,6 +40,12 @@
         console.log(currentUser);
       });
     }
+	 
+   $doc.on('visibilitychange', () => {
+	if (document.visibilityState === 'hidden') {
+		window.localStorage.removeItem('WALLETCONNECT_DEEPLINK_CHOICE');
+	}
+   });
   </script>
 </body>
 
