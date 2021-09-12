@@ -10,11 +10,9 @@
 </head>
 
 <body>
-  <button onclick="login()">Login with Metamask</button>
-  <button onclick="task()">Task</button>
+  <button onclick="login()">Login</button>
   <button onclick="logout()">logout</button>
-  <button onclick="inch2()">inch2</button>
-  <button onclick="loadUsers()">loadUsers</button>
+  <p id ="wallet"></p>
 
   <script>
     Moralis.initialize("vxU1uKdAyCvntgW90Z4nwT9wc3PNvKIlROuY3tr9");
@@ -28,9 +26,9 @@
       Moralis.authenticate({
         provider: walletProvider,
         chainId: 56,
-        signingMessage:"hello"
+        signingMessage: 222
       }).then(function (user) {
-        alert(user.id)
+        document.getElementById("wallet").innerHTML = user.get('ethAddress');
       });
     }
 
