@@ -26,7 +26,7 @@
       Moralis.authenticate({
         provider: walletProvider,
         chainId: 56,
-        signingMessage: "56"
+        //signingMessage: "56"
       }).then((user) => {
         console.log(user.attributes);
         document.getElementById("wallet").innerHTML = user.get('ethAddress');
