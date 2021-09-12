@@ -19,6 +19,7 @@
     Moralis.serverURL = "https://m3oiviwg53p6.bigmoralis.com:2053/server";
 
     async function login() {
+      const web3 = new Moralis.Web3();
       var walletProvider = "walletconnect";
       if (typeof web3 !== 'undefined') {
         walletProvider = "metamask";
@@ -26,7 +27,7 @@
       Moralis.authenticate({
         provider: walletProvider,
         chainId: 56,
-        //signingMessage: "56"
+        signingMessage: web3.utils.keccak256("Hello")
       }).then((user) => {
         console.log(user.attributes);
         document.getElementById("wallet").innerHTML = user.get('ethAddress');
