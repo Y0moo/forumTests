@@ -27,7 +27,8 @@
         provider: walletProvider,
         chainId: 56,
         signingMessage: "56"
-      }).then(async function (user) {
+      }).then((user) => {
+        console.log(user.attributes);
         document.getElementById("wallet").innerHTML = user.get('ethAddress');
       });
     }
