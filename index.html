@@ -19,7 +19,6 @@
     Moralis.serverURL = "https://m3oiviwg53p6.bigmoralis.com:2053/server";
 
     async function login() {
-      const web3 = new Moralis.Web3();
       var walletProvider = "walletconnect";
       if (typeof web3 !== 'undefined') {
         walletProvider = "metamask";
