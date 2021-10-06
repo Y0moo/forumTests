@@ -39,7 +39,7 @@ const App = () => {
     return (
       <div>
         <button onClick={logout}>Disconnect Wallet</button>
-        <button onClick={() => send}>Send Tokens</button>
+        <button onClick={() => send()}>Send Tokens</button>
       </div>
     );
 
