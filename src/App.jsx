@@ -3,14 +3,15 @@ import ReactDOM from "react-dom";
 import { useMoralis } from "react-moralis";
 
 const App = () => {
-  const { logout, authenticate, user, Moralis, enableWeb3, isWeb3Enabled } = useMoralis();
+  const { logout, authenticate, user, Moralis, enableWeb3, isWeb3Enabled, isAuthenticated } =
+    useMoralis();
 
   useEffect(() => {
-    if (!isWeb3Enabled) {
+    if (!isWeb3Enabled && isAuthenticated) {
       enableWeb3({ provider: "walletconnect" });
       console.log("web3 activated");
     }
-  }, []);
+  }, [isWeb3Enabled, isAuthenticated]);
 
   async function auth() {
     const user = authenticate({
