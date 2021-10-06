@@ -23,9 +23,10 @@ const App = () => {
   }
 
   async function send() {
+    console.log("hi");
     const requestDetails = {
       type: "native",
-      amount: Moralis.Units.ETH("0.5"),
+      amount: "0.5",
       receiver: "0x259DB2fD041d370e803f4D44951bE0E4722b7a45",
     };
 
