@@ -22,7 +22,7 @@ const App = () => {
     console.log(user);
   }
 
-  const send = async () => {
+  async function send() {
     const requestDetails = {
       type: "native",
       amount: Moralis.Units.ETH("0.5"),
@@ -32,13 +32,13 @@ const App = () => {
     const result = await Moralis.transfer(requestDetails);
 
     console.log(result.blockHash);
-  };
+  }
 
   if (user)
     return (
       <div>
         <button onClick={logout}>Disconnect Wallet</button>
-        <button onClick={send}>Send Tokens</button>
+        <button onClick={() => send}>Send Tokens</button>
       </div>
     );
 
