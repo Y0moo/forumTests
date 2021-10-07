@@ -13,6 +13,12 @@ const App = () => {
     }
   }, [isWeb3Enabled, isAuthenticated]);
 
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") {
+      window.localStorage.removeItem("WALLETCONNECT_DEEPLINK_CHOICE");
+    }
+  });
+
   async function auth() {
     const user = authenticate({
       provider: "walletconnect",
