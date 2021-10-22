@@ -21,11 +21,11 @@ const App = () => {
   async function auth() {
     const user = authenticate({
       provider: "walletconnect",
-      chainId: 56,
+      chainId: 4,
       mobileLinks: ["metamask", "trust", "rainbow", "argent", "imtoken", "pillar"],
       signingMessage: "Welcome!",
     });
-    console.log(user);
+    alert(user);
   }
 
   async function send() {
