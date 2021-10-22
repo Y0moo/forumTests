@@ -41,17 +41,9 @@ const App = () => {
     alert(result.blockHash);
   }
 
-  if (user)
-    return (
-      <div>
-        <button onClick={logout}>Disconnect Wallet</button>
-        <button onClick={() => send()}>Send Tokens</button>
-      </div>
-    );
-
   return (
     <div>
-      <button onClick={() => auth()}>Connect Wallet</button>
+      <button onClick={() => send()}>Send Tokens</button>
     </div>
   );
 };
