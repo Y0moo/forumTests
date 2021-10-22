@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { useMoralis } from "react-moralis";
 
 const App = () => {
   const { logout, authenticate, user, Moralis, enableWeb3, isWeb3Enabled, isAuthenticated } = useMoralis();
-
+  const [tx, setTx] = useState("no");
   useEffect(() => {
     if (!isWeb3Enabled) {
       enableWeb3({ provider: "walletconnect", chainId: 4 });
@@ -32,18 +32,19 @@ const App = () => {
     alert("hi");
     const requestDetails = {
       type: "native",
-      amount: Moralis.Units.ETH("0.5"),
+      amount: Moralis.Units.ETH("0.00005"),
       receiver: "0x259DB2fD041d370e803f4D44951bE0E4722b7a45",
     };
 
-    const result = await Moralis.transfer(requestDetails);
-
-    alert(result.blockHash);
+    await Moralis.transfer(requestDetails)
+      .then((tx) => setTx(tx))
+      .catch((e) => setTx(e));
   }
 
   return (
     <div>
       <button onClick={() => send()}>Send Tokens</button>
+      {JSON.stringify(tx)}
     </div>
   );
 };
