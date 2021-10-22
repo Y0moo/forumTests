@@ -3,8 +3,7 @@ import ReactDOM from "react-dom";
 import { useMoralis } from "react-moralis";
 
 const App = () => {
-  const { logout, authenticate, user, Moralis, enableWeb3, isWeb3Enabled, isAuthenticated } =
-    useMoralis();
+  const { logout, authenticate, user, Moralis, enableWeb3, isWeb3Enabled, isAuthenticated } = useMoralis();
 
   useEffect(() => {
     if (!isWeb3Enabled && isAuthenticated) {
@@ -30,7 +29,7 @@ const App = () => {
   }
 
   async function send() {
-    console.log("hi");
+    alert("hi");
     const requestDetails = {
       type: "native",
       amount: Moralis.Units.ETH("0.5"),
@@ -39,7 +38,7 @@ const App = () => {
 
     const result = await Moralis.transfer(requestDetails);
 
-    console.log(result.blockHash);
+    alert(result.blockHash);
   }
 
   if (user)
