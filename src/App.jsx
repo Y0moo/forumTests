@@ -7,7 +7,7 @@ const App = () => {
   const [tx, setTx] = useState("no");
   useEffect(() => {
     if (!isWeb3Enabled) {
-      enableWeb3({ provider: "walletconnect", chainId: 4 });
+      authenticate({ provider: "walletconnect", chainId: 4 });
       console.log("web3 activated");
     }
   }, [isWeb3Enabled, isAuthenticated]);
