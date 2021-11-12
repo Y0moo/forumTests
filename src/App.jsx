@@ -37,8 +37,8 @@ const App = () => {
 
   return (
     <div>
-      <button onClick={() =>  authenticate({ provider: "walletconnect", chainId: 4 })}>Auth</button>
-      {JSON.stringify(tx)}
+      <button onClick={() =>  authenticate({ provider: "walletconnect", chainId: 1 })}>Auth</button>
+      {JSON.stringify(isAuthenticated)}
     </div>
   );
 };
