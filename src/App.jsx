@@ -4,13 +4,7 @@ import { useMoralis } from "react-moralis";
 
 const App = () => {
   const { logout, authenticate, user, Moralis, enableWeb3, isWeb3Enabled, isAuthenticated } = useMoralis();
-  const [tx, setTx] = useState("no");
-  useEffect(() => {
-    if (!isWeb3Enabled) {
-      authenticate({ provider: "walletconnect", chainId: 4 });
-      console.log("web3 activated");
-    }
-  }, [isWeb3Enabled, isAuthenticated]);
+  const [tx, setTx] = useState("no")
 
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "hidden") {
@@ -43,7 +37,7 @@ const App = () => {
 
   return (
     <div>
-      <button onClick={() => send()}>Send Tokens</button>
+      <button onClick={() =>  authenticate({ provider: "walletconnect", chainId: 4 })}>Auth</button>
       {JSON.stringify(tx)}
     </div>
   );
